@@ -1,68 +1,26 @@
 body {
-background: #000000;
-}
-/* 1. Define the custom font using @font-face */
-@font-face {
-  font-family: 'ITC Benguiat W01 Bold'; /* Or whatever you name your font */
-  src: url('path/to/your/fontfile.woff2') format('woff2'),
-       url('path/to/your/fontfile.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
+  background: #000000;
   margin: 0;
-  padding: 0;
   display: flex;
-  justify-content: center; /* Horizontal center */
-  align-items: center;     /* Vertical center */
-  min-height: 100vh;       /* Full height of the screen */
-  background-color: #00000000;  /* Black background is essential */
-  overflow: hidden;        /* Prevents scrolling */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* The Stranger Things styling */
-h1{
-  font-family: 'ITC Benguiat', serif;
+/* Define the custom font */
+@font-face {
+  font-family: 'ITC Benguiat';
+  src: url('path/to/your/fontfile.woff2') format('woff2');
   font-weight: 800;
-  text-transform: uppercase;
-  font-size: 8rem;
-  color: #1a0202; 
-  letter-spacing: -2px;
-  text-align: center;
-  
-  /* Red Glow Effect */
-  text-shadow: 
-    -0.05rem -0.05rem 1px #ff1515,
-     0.05rem -0.05rem 1px #ff1515,
-    -0.05rem  0.05rem 1px #ff1515,
-     0.05rem  0.05rem 1px #ff1515,
-     0 0 15px #630100,
-     0 0 20px #450100;
 }
-button {
-    -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 7px 5px 26px 15px rgba(30,7,7,0); 
-    box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 7px 5px 26px 15px rgba(30,7,7,0); 
+
+.stranger-link {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
-a:link, a:visited, a:hover, a:active {
-  text-decoration: underline, ;
-}
-a {
-  color: lab(60.32% 61.68 54.48 / 0); /* Use Hex, RGB, or color names */
-  text-decoration: underline; /* Ensures underline stays */
-}
-a:hover {
-  color: #000000; /* or your specific hover color */
-}
-a:active {
-  color: inherit; /* or your specific link color */
-}
-a:focus {
-  outline: none;
-  /* Keep underline explicit if needed */
-  text-decoration: underline; 
-}
-/* Base text remains static on load */
+
 .stranger-things-text {
   font-family: 'ITC Benguiat', serif;
   font-weight: 800;
@@ -71,16 +29,23 @@ a:focus {
   color: #1a0202; 
   letter-spacing: -2px;
   text-align: center;
-  text-shadow: 0 0 15px #630100, 0 0 20px #450100;
+  display: inline-block; /* Required for scaling */
+  
+  /* Red Glow Effect */
+  text-shadow: 
+     0.05rem -0.05rem 1px #ff1515,
+    -0.05rem  0.05rem 1px #ff1515,
+     0.05rem  0.05rem 1px #ff1515,
+     0 0 15px #630100,
+     0 0 20px #450100;
 }
 
-/* This class will only be added via JavaScript upon clicking */
+/* The Animation Trigger */
 .fly-out-trigger {
-  animation: flyTowards 0.8s ease-in forwards;
+  animation: flyTowards 0.8s ease-in forwards !important;
 }
 
 @keyframes flyTowards {
   0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(20); opacity: 0; filter: blur(10px); }
+  100% { transform: scale(25); opacity: 0; filter: blur(15px); }
 }
-
