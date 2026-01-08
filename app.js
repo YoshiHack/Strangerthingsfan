@@ -1,13 +1,17 @@
-document.querySelector('.stranger-link').addEventListener('click', function(e) {
-  e.preventDefault(); // Stop immediate navigation
-  const targetUrl = this.getAttribute('href');
-  const textElement = document.querySelector('.stranger-things-text');
+document.addEventListener('DOMContentLoaded', () => {
+  const link = document.querySelector('.stranger-link');
+  const text = document.querySelector('.stranger-things-text');
 
-  // Add the animation class
-  textElement.classList.add('fly-out');
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // Stop the browser from leaving immediately
+    const targetUrl = this.getAttribute('href');
 
-  // Wait for the animation to finish (800ms) before changing page
-  setTimeout(() => {
-    window.location.href = targetUrl;
-  }, 800); 
+    // Add the animation class NOW
+    text.classList.add('fly-out-trigger');
+
+    // Wait for the 0.8s animation to finish before navigating
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 800); 
+  });
 });
